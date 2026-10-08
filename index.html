@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>VINOIR COUTURE | Luxury Wine Red Contemporary Fashion</title>
+  <meta name="description" content="Discover VINOIR COUTURE - Luxury evening gowns, tailored wool blazers, and mulberry silk slip dresses in signature wine red & bordeaux. Free worldwide shipping over $150." />
+  <meta name="keywords" content="wine red fashion, bordeaux dresses, luxury couture, silk dresses, wool blazers, autumn winter collection" />
+  
+  <!-- Google Fonts & Remix Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Main Theme Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span>✨ AUTUMN ELEGANCE SALE: Use code <code>WINE20</code> for 20% OFF | Free Express Shipping on Orders $150+</span>
+  </div>
+
+  <!-- 2. HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container header-container">
+      <!-- Mobile Hamburger Button -->
+      <button class="icon-btn hamburger-btn" id="hamburger-btn" aria-label="Open Menu">
+        <i class="ri-menu-line" style="font-size: 1.35rem;"></i>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="#home" class="logo">
+        <span class="logo-mark">V</span>
+        <span>VINOIR</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Collection</a>
+        <a href="#story" class="nav-link">Our Atelier</a>
+        <a href="#about" class="nav-link">About Us</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Account Status Button -->
+        <button class="btn btn-outline-dark btn-sm" id="user-status-btn" onclick="openAuthModal()">
+          <i class="ri-user-3-line"></i>
+          <span id="user-status-text">Log In</span>
+        </button>
+
+        <!-- Wishlist -->
+        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist view opened')">
+          <i class="ri-heart-3-line" style="font-size: 1.2rem;"></i>
+        </button>
+
+        <!-- Cart Drawer Trigger -->
+        <button class="icon-btn" id="cart-btn" title="Shopping Cart" onclick="openCartDrawer()">
+          <i class="ri-shopping-bag-3-line" style="font-size: 1.2rem;"></i>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span class="logo" style="font-size: 1.35rem;">VINOIR</span>
+      <button class="icon-btn" onclick="document.getElementById('mobile-nav-drawer').classList.remove('active')">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#home" onclick="document.getElementById('mobile-nav-drawer').classList.remove('active')">Home</a>
+      <a href="#shop" onclick="document.getElementById('mobile-nav-drawer').classList.remove('active')">Shop Collection</a>
+      <a href="#story" onclick="document.getElementById('mobile-nav-drawer').classList.remove('active')">Our Atelier</a>
+      <a href="#about" onclick="document.getElementById('mobile-nav-drawer').classList.remove('active')">About Us</a>
+      <a href="#" onclick="openAuthModal(); document.getElementById('mobile-nav-drawer').classList.remove('active')">My Account</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- 3. HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="ri-sparkles-line"></i> Signature Wine Red Edition 2026
+          </div>
+          <h1 class="heading-xl hero-title">
+            Draped in Intoxicating <span>Bordeaux</span> & Pure Luxury
+          </h1>
+          <p class="hero-description">
+            Experience handcrafted mulberry silk dresses, velvet galas, and bespoke virgin wool blazers designed in our signature wine red color palette.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#shop" class="btn btn-primary">
+              <span>Explore Collection</span>
+              <i class="ri-arrow-right-line"></i>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>Watch Atelier Story</span>
+              <i class="ri-play-circle-line"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-value">12k+</div>
+              <div class="stat-label">Couture Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Sustainable Mulberry Silk</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">4.9★</div>
+              <div class="stat-label">Global Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1200&q=80" alt="Wine Red Velvet Gown Model" />
+          </div>
+          <div class="hero-floating-card">
+            <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=200&q=80" alt="Preview" />
+            <div class="hero-floating-info">
+              <h5>Velvet Evening Gown</h5>
+              <p>Hand-stitched Corset</p>
+              <span class="price">$345.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VALUES & FEATURES BAR -->
+    <section class="features-bar">
+      <div class="container features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="ri-truck-line"></i></div>
+          <div>
+            <h4 class="feature-title">Express Worldwide Shipping</h4>
+            <p class="feature-desc">Complimentary shipping on orders over $150</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="ri-leaf-line"></i></div>
+          <div>
+            <h4 class="feature-title">Sustainable Craftsmanship</h4>
+            <p class="feature-desc">Ethically sourced organic silk & virgin wool</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="ri-refresh-line"></i></div>
+          <div>
+            <h4 class="feature-title">30-Day Atelier Returns</h4>
+            <p class="feature-desc">Hassle-free size exchanges and returns</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="ri-vip-crown-line"></i></div>
+          <div>
+            <h4 class="feature-title">24/7 Private Concierge</h4>
+            <p class="feature-desc">Personal styling assistance on call</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SHOP / COLLECTION SECTION -->
+    <section class="shop-section" id="shop">
+      <div class="container">
+        <div class="section-header">
+          <span class="subheading">Curated Wardrobe</span>
+          <h2 class="heading-lg">Signature Wine Red Collection</h2>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="category-tabs" id="category-tabs">
+          <button class="tab-btn active" data-category="all">All Designs</button>
+          <button class="tab-btn" data-category="bestsellers">Best Sellers 🔥</button>
+          <button class="tab-btn" data-category="new">New Arrivals ✨</button>
+          <button class="tab-btn" data-category="eveningwear">Eveningwear</button>
+          <button class="tab-btn" data-category="outerwear">Wool & Outerwear</button>
+        </div>
+
+        <!-- Products Dynamic Grid -->
+        <div class="products-grid" id="products-grid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BRAND STORY & CRAFTSMANSHIP BANNER -->
+    <section class="story-banner" id="story">
+      <div class="container story-grid">
+        <div class="story-content">
+          <span class="subheading" style="color:var(--color-gold)">The Atelier Philosophy</span>
+          <h2 class="heading-lg">Why We Built Our World Around Wine Red</h2>
+          <p>
+            Wine red isn't merely a color; it is a statement of warmth, authority, and sensual sophistication. Each garment in our bordeaux series undergoes meticulous dyeing processes using organic botanical extracts to capture light with rich complexity.
+          </p>
+
+          <div class="story-highlights">
+            <div class="highlight-box">
+              <h4>Italian Silk Atelier</h4>
+              <p>Woven in historical mills in Como, Italy for peerless drape.</p>
+            </div>
+            <div class="highlight-box">
+              <h4>Bespoke Tailoring</h4>
+              <p>Precision cut patterns designed for body confidence.</p>
+            </div>
+          </div>
+
+          <a href="#shop" class="btn btn-gold">
+            <span>Shop Signature Collection</span>
+            <i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=80" alt="Tailored Wool Blazer Craftsmanship" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT US VIEW -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-hero">
+          <span class="subheading">Our Journey</span>
+          <h2 class="heading-lg">Reimagining Modern Luxury Fashion</h2>
+          <p style="color:var(--color-text-secondary); margin-top:1rem;">
+            Founded in 2018, VINOIR COUTURE emerged from a single desire: to create timeless wardrobe mainstays centered on deep burgundy and rich wine tones.
+          </p>
+        </div>
+
+        <div class="about-timeline">
+          <div class="timeline-card">
+            <div class="timeline-year">2018</div>
+            <h4 class="heading-sm">The Atelier Genesis</h4>
+            <p style="font-size:0.875rem; color:var(--color-text-secondary); margin-top:0.5rem">
+              Started as a private custom dressmaking studio specializing in deep red silks and hand-tailored tuxedos.
+            </p>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-year">2021</div>
+            <h4 class="heading-sm">Runway Debut</h4>
+            <p style="font-size:0.875rem; color:var(--color-text-secondary); margin-top:0.5rem">
+              Unveiled the 'Monochrome Wine' ready-to-wear runway collection in Paris, receiving international acclaim.
+            </p>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-year">2026</div>
+            <h4 class="heading-sm">Sustainable Luxury SPA</h4>
+            <p style="font-size:0.875rem; color:var(--color-text-secondary); margin-top:0.5rem">
+              Transitioned to 100% certified organic mulberry silk, eco-friendly dye processes, and zero-waste packaging.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-mark">V</span>
+            <span>VINOIR</span>
+          </a>
+          <p>Elevating contemporary wardrobes with signature wine red elegance, sustainable craftsmanship, and timeless silhouettes.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="social-btn" aria-label="Pinterest"><i class="ri-pinterest-line"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="ri-tiktok-line"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Shop Collection</h5>
+          <div class="footer-links">
+            <a href="#shop">Evening Dresses</a>
+            <a href="#shop">Wool Blazers</a>
+            <a href="#shop">Mulberry Silk Slips</a>
+            <a href="#shop">Cashmere Coats</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Atelier Services</h5>
+          <div class="footer-links">
+            <a href="#about">Our Story</a>
+            <a href="#" onclick="openAuthModal()">My Account</a>
+            <a href="#" onclick="showToast('Size guide opened')">Size Guide</a>
+            <a href="#" onclick="showToast('Shipping policy')">Shipping & Returns</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Stay Connected</h5>
+          <p style="font-size:0.875rem; margin-bottom:1rem">Subscribe for private trunk show invites and get 10% off your first order.</p>
+          <div style="display:flex; gap:0.5rem">
+            <input type="email" placeholder="Enter your email..." style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:0.6rem 1rem; border-radius:var(--radius-full); color:#fff; flex-grow:1; font-size:0.875rem" />
+            <button class="btn btn-primary btn-sm" onclick="showToast('Subscribed! Check your inbox for WELCOME10 code.')">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 VINOIR COUTURE. All rights reserved. Designed with Wine Red theme.</p>
+        <div style="display:flex; gap:1.5rem">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Cookies</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS & SLIDE-OVERS (SPA ENGINE)
+       ========================================================================== -->
+
+  <!-- 1. PRODUCT DETAILS PAGE (PDP) MODAL -->
+  <div class="modal-overlay" id="pdp-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('pdp-modal')"><i class="ri-close-line"></i></button>
+
+      <div class="pdp-grid">
+        <!-- PDP Interactive Gallery -->
+        <div class="pdp-gallery">
+          <div class="gallery-main-view">
+            <img id="pdp-gallery-main" src="" alt="Product Gallery" />
+          </div>
+          <div class="gallery-thumbnails" id="pdp-gallery-thumbs">
+            <!-- Dynamically injected -->
+          </div>
+        </div>
+
+        <!-- PDP Info Details -->
+        <div class="pdp-info">
+          <div class="pdp-meta-tags-badge">
+            <i class="ri-search-eye-line"></i> SPA Meta Info & SEO Ready
+          </div>
+          <h2 class="heading-md pdp-title" id="pdp-title">Product Title</h2>
+
+          <div class="pdp-rating-row">
+            <div class="pdp-stars">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-half-fill"></i>
+            </div>
+            <span class="pdp-reviews-count" id="pdp-reviews-count">(0 reviews)</span>
+          </div>
+
+          <div class="pdp-price-row">
+            <span class="pdp-price" id="pdp-price">$0.00</span>
+            <span class="pdp-old-price" id="pdp-old-price">$0.00</span>
+            <span class="pdp-stock-status" id="pdp-stock">In Stock</span>
+          </div>
+
+          <!-- Color Swatches Selection -->
+          <div class="variant-section">
+            <div class="variant-label">
+              <span>Color:</span>
+              <span class="selected-val" id="selected-color-label">Wine Red</span>
+            </div>
+            <div class="color-swatches" id="pdp-color-swatches"></div>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="variant-section">
+            <div class="variant-label">
+              <span>Select Size:</span>
+              <a href="#" style="font-size:0.75rem; color:var(--color-wine-primary)" onclick="showToast('Size guide: S=36, M=38, L=40')">Size Guide</a>
+            </div>
+            <div class="size-options" id="pdp-size-options"></div>
+          </div>
+
+          <!-- Quantity & Add to Cart -->
+          <div class="pdp-actions-row">
+            <div class="quantity-control">
+              <button class="qty-btn" onclick="updatePDPQty(-1)">-</button>
+              <input type="text" class="qty-input" id="pdp-qty-input" value="1" readonly />
+              <button class="qty-btn" onclick="updatePDPQty(1)">+</button>
+            </div>
+            <button class="btn btn-primary" style="flex-grow:1" onclick="addActiveProductToCart()">
+              <i class="ri-shopping-bag-line"></i> Add to Cart Bag
+            </button>
+          </div>
+
+          <!-- Specs & Description -->
+          <div class="pdp-tabs">
+            <div class="tab-headers">
+              <span class="pdp-tab-btn active">Description</span>
+              <span class="pdp-tab-btn">Fabric & Care</span>
+            </div>
+            <p class="pdp-tab-panel" id="pdp-description"></p>
+            <p class="pdp-tab-panel" id="pdp-fabric" style="font-style:italic; margin-top:0.5rem"></p>
+          </div>
+
+          <!-- SEO Meta Data Inspector (As requested by user: Title, Meta Description, Keywords display) -->
+          <div class="seo-meta-preview">
+            <h6><i class="ri-code-s-slash-line"></i> Meta Description & SEO Details</h6>
+            <div style="font-weight:600; margin-bottom:0.25rem" id="pdp-meta-title">Meta Title</div>
+            <div style="color:var(--color-text-secondary); margin-bottom:0.35rem" id="pdp-meta-desc">Meta Description</div>
+            <div style="font-size:0.75rem; color:var(--color-text-muted)" id="pdp-meta-keywords">Keywords</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CART DRAWER (SLIDE-OVER) -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer" id="cart-drawer">
+      <div class="drawer-header">
+        <h3><i class="ri-shopping-bag-line" style="color:var(--color-wine-primary)"></i> Shopping Bag</h3>
+        <button class="drawer-close" onclick="closeCartDrawer()"><i class="ri-close-line"></i></button>
+      </div>
+
+      <!-- Free Shipping Goal Progress -->
+      <div class="shipping-progress-bar">
+        <div class="progress-text" id="free-shipping-text">Add $150 for FREE Shipping</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="free-shipping-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="drawer-body" id="cart-items-container">
+        <!-- Dynamically rendered by script.js -->
+      </div>
+
+      <!-- Drawer Footer with Coupon Code & Totals -->
+      <div class="drawer-footer">
+        <div class="coupon-box">
+          <input type="text" id="coupon-input" class="coupon-input" placeholder="Coupon code (e.g. WINE20)" />
+          <button class="btn btn-secondary btn-sm" onclick="applyCouponCode()">Apply</button>
+        </div>
+        <div class="coupon-msg" id="coupon-msg"></div>
+
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-line" id="cart-discount-row" style="display:none; color:var(--color-success)">
+          <span>Discount Applied</span>
+          <span id="cart-discount">-$0.00</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Estimated Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+
+        <button class="btn btn-primary btn-full" onclick="openCheckoutModal()">
+          <span>Proceed to Checkout</span>
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CHECKOUT MODAL (GUEST VS LOGGED-IN CHECKOUT) -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content checkout-modal-content">
+      <button class="modal-close-btn" onclick="closeModal('checkout-modal')"><i class="ri-close-line"></i></button>
+
+      <div class="checkout-grid">
+        <!-- Left: Form Step & Guest vs User switch -->
+        <div class="checkout-main">
+          <h2 class="heading-md" style="margin-bottom:0.5rem">Express Checkout</h2>
+          <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:1.5rem">Complete your order with guest checkout or sign in to your account.</p>
+
+          <!-- Toggle: Guest vs Logged In -->
+          <div class="checkout-header-tabs">
+            <button class="checkout-tab-btn active" id="chk-mode-guest" onclick="switchCheckoutMode('guest')">
+              Checkout as Guest
+            </button>
+            <button class="checkout-tab-btn" id="chk-mode-login" onclick="switchCheckoutMode('login')">
+              Log In to Account
+            </button>
+          </div>
+
+          <!-- User Logged-In Notice -->
+          <div id="chk-user-alert" style="display:none; background:var(--color-wine-soft); border:1px solid var(--color-wine-border); padding:0.75rem 1rem; border-radius:var(--radius-sm); font-size:0.8125rem; margin-bottom:1.25rem;">
+            <i class="ri-user-smile-line" style="color:var(--color-wine-primary)"></i> Welcome back! Shipping address auto-filled for <strong>Sophia Vance</strong>.
+          </div>
+
+          <form id="checkout-form" onsubmit="processPlaceOrder(event)">
+            <h4 class="heading-sm" style="margin-bottom:1rem">1. Contact & Delivery Info</h4>
+            
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="chk-email" class="form-input" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name *</label>
+                <input type="text" id="chk-fname" class="form-input" placeholder="First Name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name *</label>
+                <input type="text" id="chk-lname" class="form-input" placeholder="Last Name" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Shipping Address *</label>
+              <input type="text" id="chk-address" class="form-input" placeholder="Street Address, Apartment, Suite" required />
+            </div>
+
+            <h4 class="heading-sm" style="margin-top:1.5rem; margin-bottom:1rem">2. Payment Method</h4>
+            <div class="payment-methods">
+              <div class="payment-card-opt active" onclick="selectPaymentMethod(this, 'card')">
+                <i class="ri-bank-card-line" style="font-size:1.25rem"></i>
+                <div>Credit Card</div>
+              </div>
+              <div class="payment-card-opt" onclick="selectPaymentMethod(this, 'applepay')">
+                <i class="ri-apple-fill" style="font-size:1.25rem"></i>
+                <div>Apple Pay</div>
+              </div>
+              <div class="payment-card-opt" onclick="selectPaymentMethod(this, 'cod')">
+                <i class="ri-hand-coin-line" style="font-size:1.25rem"></i>
+                <div>Cash on Delivery</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Card Number (Simulated)</label>
+              <input type="text" class="form-input" placeholder="•••• •••• •••• 4242" value="4532 8912 3456 4242" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="place-order-btn" style="margin-top:1.5rem">
+              Place Order Now
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="checkout-sidebar">
+          <h3 class="heading-sm" style="margin-bottom:1.25rem">Order Summary</h3>
+          <div id="chk-summary-items" style="max-height:260px; overflow-y:auto; margin-bottom:1.25rem; border-bottom:1px solid var(--color-border); padding-bottom:1rem">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="cart-summary-line">
+            <span>Subtotal</span>
+            <span id="chk-subtotal">$0.00</span>
+          </div>
+          <div class="cart-summary-line" style="color:var(--color-success)">
+            <span>Coupon Discount</span>
+            <span id="chk-discount">-$0.00</span>
+          </div>
+          <div class="cart-summary-line">
+            <span>Shipping (Worldwide)</span>
+            <span id="chk-shipping">FREE</span>
+          </div>
+          <div class="cart-summary-line total">
+            <span>Total Payable</span>
+            <span id="chk-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ORDER CONFIRMATION RECEIPT MODAL -->
+  <div class="modal-overlay" id="confirmation-modal">
+    <div class="modal-content">
+      <div class="confirmation-card">
+        <div class="success-checkmark">
+          <i class="ri-check-line"></i>
+        </div>
+        <span class="subheading" style="color:var(--color-success)">Order Successfully Placed!</span>
+        <h2 class="heading-lg" style="margin-top:0.5rem">Thank You For Your Order</h2>
+        <p style="color:var(--color-text-secondary); margin-top:0.5rem">
+          Your bespoke Wine Red item is being prepared in our atelier. A confirmation email has been sent.
+        </p>
+
+        <div class="receipt-box">
+          <div class="receipt-row">
+            <span>Order Number:</span>
+            <strong id="receipt-order-id">#VIN-98241</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Customer Name:</span>
+            <span id="receipt-customer">Sophia Vance</span>
+          </div>
+          <div class="receipt-row">
+            <span>Email:</span>
+            <span id="receipt-email">sophia@example.com</span>
+          </div>
+          <div class="receipt-row" style="border-top:1px solid var(--color-border); padding-top:0.5rem; margin-top:0.5rem; font-weight:700">
+            <span>Total Amount Paid:</span>
+            <span id="receipt-total" style="color:var(--color-wine-primary)">$345.00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="closeModal('confirmation-modal')">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. AUTH / USER LOGIN MODAL -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-content auth-box">
+      <button class="modal-close-btn" onclick="closeModal('auth-modal')"><i class="ri-close-line"></i></button>
+      
+      <div style="text-align:center; margin-bottom:1.5rem">
+        <span class="logo-mark" style="margin: 0 auto 0.5rem auto;">V</span>
+        <h3 class="heading-sm">Welcome to VINOIR Atelier</h3>
+        <p style="font-size:0.8125rem; color:var(--color-text-muted)">Sign in to access saved address & member rewards</p>
+      </div>
+
+      <form onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" value="sophia.vance@example.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" value="••••••••••••" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top:1rem">
+          Sign In to Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
