@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VINOIR COUTURE - SINGLE PAGE APPLICATION (SPA) JAVASCRIPT ENGINE
+   RichBrand Couture - SINGLE PAGE APPLICATION (SPA) JAVASCRIPT ENGINE
    Features: Products catalog, Gallery slider, Cart drawer, Guest/User Checkout,
             Coupon system, SEO Meta inspector display, Responsive state logic.
    ========================================================================== */
@@ -31,7 +31,7 @@ const PRODUCTS_DATA = [
     description: 'Impeccably tailored from rich wine-red velvet with a cascading floor-length silhouette. Designed with a structured corset bodice and subtle thigh slit for timeless glamour.',
     fabricCare: '100% Organic Mulberry Velvet. Dry clean only. Iron inside out with steam.',
     meta: {
-      title: 'Velvet Bordeaux Evening Gown | Vinoir Couture',
+      title: 'Velvet Bordeaux Evening Gown | RichBrand Couture',
       description: 'Shop the handcrafted Velvet Bordeaux Evening Gown in signature wine red. Floor-length luxury gown tailored for black-tie galas and evening affairs.',
       keywords: 'wine red evening gown, luxury velvet dress, bordeaux gown, couture fashion'
     }
@@ -59,7 +59,7 @@ const PRODUCTS_DATA = [
     description: 'A masterpiece in contemporary tailoring. Crafted from premium Italian wool blend with custom gold crest buttons and silk lining.',
     fabricCare: '80% Virgin Wool, 20% Silk. Professional dry clean recommended.',
     meta: {
-      title: 'Wine Red Double-Breasted Wool Blazer | Vinoir',
+      title: 'Wine Red Double-Breasted Wool Blazer | RichBrand',
       description: 'Elegantly sharp wine red double-breasted blazer for modern women and men. Crafted with Italian virgin wool.',
       keywords: 'wine red blazer, double breasted jacket, luxury tailoring, bordeaux blazer'
     }
@@ -87,7 +87,7 @@ const PRODUCTS_DATA = [
     description: 'Sensual biases-cut silk slip dress in deep burgundy. Drapes effortlessly over the frame with adjustable delicate spaghetti straps.',
     fabricCare: '100% 22-Momme Mulberry Silk. Hand wash cold or dry clean.',
     meta: {
-      title: 'Burgundy Mulberry Silk Slip Dress | Vinoir Couture',
+      title: 'Burgundy Mulberry Silk Slip Dress | RichBrand Couture',
       description: 'Fluid 100% Mulberry silk slip dress in deep burgundy. Lightweight, breathable, and intoxicatingly graceful.',
       keywords: 'burgundy silk dress, slip dress, mulberry silk, wine red outfit'
     }
@@ -115,7 +115,7 @@ const PRODUCTS_DATA = [
     description: 'Ultra-luxurious cashmere-wool blend coat featuring a waist-cinching belt, wide lapels, and deep storm flap for autumn warmth.',
     fabricCare: '70% Mongolian Cashmere, 30% Fine Wool. Dry clean only.',
     meta: {
-      title: 'Royal Maroon Cashmere Trench Coat | Vinoir',
+      title: 'Royal Maroon Cashmere Trench Coat | RichBrand',
       description: 'Wrap yourself in pure cashmere luxury with our Royal Maroon Trench Coat. Hand-finished seams & iconic silhouette.',
       keywords: 'cashmere trench coat, maroon wool coat, luxury outerwear, wine red coat'
     }
@@ -142,7 +142,7 @@ const PRODUCTS_DATA = [
     description: 'High-waisted pleated midi skirt in shimmering satin. Elastic waistband with side zip closure for fluid motion.',
     fabricCare: '100% Premium Satin Polyester. Cold gentle machine wash.',
     meta: {
-      title: 'Wine Red Pleated Satin Midi Skirt | Vinoir',
+      title: 'Wine Red Pleated Satin Midi Skirt | RichBrand',
       description: 'Flowy satin pleated midi skirt in rich wine red. Versatile styling from casual daywear to evening dinner.',
       keywords: 'pleated midi skirt, satin skirt, wine red skirt'
     }
@@ -169,7 +169,7 @@ const PRODUCTS_DATA = [
     description: 'Draped V-neck blouse with subtle bishop sleeves and tailored cuffs. Adds effortless sophistication to blazers or leather trousers.',
     fabricCare: '95% Silk, 5% Elastane. Dry clean or hand wash cold.',
     meta: {
-      title: 'Bordeaux Satin Wrap Draped Blouse | Vinoir Couture',
+      title: 'Bordeaux Satin Wrap Draped Blouse | RichBrand Couture',
       description: 'Elegant wrap satin blouse in bordeaux. Features flattering waist ties and soft silk feel.',
       keywords: 'satin blouse, wine red top, silk shirt, bordeaux clothing'
     }
@@ -703,7 +703,7 @@ function processPlaceOrder(e) {
 
   setTimeout(() => {
     // Order successful!
-    const orderId = `VIN-${Math.floor(100000 + Math.random() * 900000)}`;
+    const orderId = `RB-${Math.floor(100000 + Math.random() * 900000)}`;
     const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     let discount = 0;
     if (state.appliedCoupon) {
