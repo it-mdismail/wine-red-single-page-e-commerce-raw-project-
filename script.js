@@ -4,6 +4,9 @@
             Coupon system, SEO Meta inspector display, Responsive state logic.
    ========================================================================== */
 
+// Currency symbol for Bangladesh (BDT)
+const CURRENCY_SYMBOL = '৳';
+
 // --------------------------------------------------------------------------
 // 1. PRODUCT DATABASE
 // --------------------------------------------------------------------------
@@ -190,9 +193,9 @@ const state = {
   appliedCoupon: null, // { code: 'WINE20', discountPercent: 20 }
   user: {
     isLoggedIn: false,
-    name: 'Sophia Vance',
-    email: 'sophia.vance@example.com',
-    address: '742 Evergreen Terrace, New York, NY 10001'
+    name: 'Tasnim Rahman',
+    email: 'tasnim.rahman@example.com',
+    address: 'House 24, Road 11, Banani, Dhaka-1213'
   },
   checkoutMode: 'guest', // 'guest' | 'login'
   checkoutStep: 1 // 1: Info, 2: Shipping, 3: Payment
@@ -201,8 +204,9 @@ const state = {
 // Available Coupons
 const COUPONS = {
   'WINE20': { type: 'percent', value: 20, desc: '20% OFF Everything' },
-  'LUXE10': { type: 'fixed', value: 10, desc: '$10 OFF Order' },
-  'FREESHIP': { type: 'shipping', value: 0, desc: 'Free Express Shipping' }
+  'LUXE10': { type: 'fixed', value: 10, desc: '৳10 OFF Order' },
+  'LUXE100': { type: 'fixed', value: 100, desc: '৳100 OFF Order' },
+  'FREESHIP': { type: 'shipping', value: 0, desc: 'Free Delivery Across Bangladesh' }
 };
 
 // --------------------------------------------------------------------------
@@ -312,8 +316,8 @@ function renderProducts() {
         </div>
         <div class="product-footer">
           <div class="product-price">
-            <span class="current-price">$${product.price.toFixed(2)}</span>
-            <span class="old-price">$${product.oldPrice.toFixed(2)}</span>
+            <span class="current-price">৳${product.price.toFixed(2)}</span>
+            <span class="old-price">৳${product.oldPrice.toFixed(2)}</span>
           </div>
           <button class="add-cart-btn" onclick="quickAddToCart('${product.id}')">
             + Add to Cart
@@ -359,8 +363,8 @@ function openPDP(productId) {
 
   // Info details
   DOM.pdpTitle.textContent = product.title;
-  DOM.pdpPrice.textContent = `$${product.price.toFixed(2)}`;
-  DOM.pdpOldPrice.textContent = `$${product.oldPrice.toFixed(2)}`;
+  DOM.pdpPrice.textContent = `৳${product.price.toFixed(2)}`;
+  DOM.pdpOldPrice.textContent = `৳${product.oldPrice.toFixed(2)}`;
   DOM.pdpReviewsCount.textContent = `(${product.reviewsCount} customer reviews)`;
   DOM.pdpStock.textContent = `In Stock (${product.stock} pieces left)`;
   DOM.pdpDescription.textContent = product.description;
@@ -526,7 +530,7 @@ function updateCartUI() {
               <span class="qty-input" style="width:24px; font-size:0.8125rem">${item.quantity}</span>
               <button class="qty-btn" onclick="updateCartQuantity(${idx}, 1)" style="width:24px; height:24px; font-size:0.8rem">+</button>
             </div>
-            <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+            <div class="cart-item-price">৳${(item.price * item.quantity).toFixed(2)}</div>
           </div>
         </div>
       </div>
@@ -548,25 +552,25 @@ function updateCartUI() {
 
   const finalTotal = Math.max(0, subtotal - discount);
 
-  DOM.cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+  DOM.cartSubtotal.textContent = `৳${subtotal.toFixed(2)}`;
   if (discount > 0) {
     DOM.cartDiscountRow.style.display = 'flex';
-    DOM.cartDiscount.textContent = `-$${discount.toFixed(2)}`;
+    DOM.cartDiscount.textContent = `-৳${discount.toFixed(2)}`;
   } else {
     DOM.cartDiscountRow.style.display = 'none';
   }
-  DOM.cartTotal.textContent = `$${finalTotal.toFixed(2)}`;
+  DOM.cartTotal.textContent = `৳${finalTotal.toFixed(2)}`;
 
-  // Free Shipping Threshold ($150)
-  const freeShipGoal = 150.00;
+  // Free Shipping Threshold (৳1500)
+  const freeShipGoal = 1500.00;
   if (subtotal >= freeShipGoal) {
     DOM.freeShippingFill.style.width = '100%';
-    DOM.freeShippingText.innerHTML = '<span style="color:var(--color-wine-primary)">🎉 You unlocked FREE Express Shipping!</span>';
+    DOM.freeShippingText.innerHTML = '<span style="color:var(--color-wine-primary)">🎉 You unlocked FREE Delivery across Bangladesh!</span>';
   } else {
     const remaining = freeShipGoal - subtotal;
     const percent = Math.min(100, (subtotal / freeShipGoal) * 100);
     DOM.freeShippingFill.style.width = `${percent}%`;
-    DOM.freeShippingText.textContent = `Add $${remaining.toFixed(2)} more to unlock FREE Express Shipping`;
+    DOM.freeShippingText.textContent = `Add ৳${remaining.toFixed(2)} more to unlock FREE Delivery`;
   }
 }
 
@@ -640,8 +644,8 @@ function switchCheckoutMode(mode) {
 
     if (state.user.isLoggedIn) {
       document.getElementById('chk-email').value = state.user.email;
-      document.getElementById('chk-fname').value = state.user.name.split(' ')[0] || 'Sophia';
-      document.getElementById('chk-lname').value = state.user.name.split(' ')[1] || 'Vance';
+      document.getElementById('chk-fname').value = state.user.name.split(' ')[0] || 'Tasnim';
+      document.getElementById('chk-lname').value = state.user.name.split(' ')[1] || 'Rahman';
       document.getElementById('chk-address').value = state.user.address;
     } else {
       openAuthModal();
@@ -662,7 +666,7 @@ function renderCheckoutSummary() {
     else if (coupon.type === 'fixed') discount = Math.min(subtotal, coupon.value);
   }
 
-  const shipping = subtotal >= 150 ? 0 : 15.00;
+  const shipping = subtotal >= 1500 ? 0 : 120.00;
   const total = subtotal - discount + shipping;
 
   container.innerHTML = state.cart.map(item => `
@@ -671,19 +675,37 @@ function renderCheckoutSummary() {
         <div style="font-weight:600">${item.title} (x${item.quantity})</div>
         <div style="font-size:0.75rem; color:var(--color-text-muted)">Size: ${item.size} | Color: ${item.color}</div>
       </div>
-      <div style="font-weight:700">$${(item.price * item.quantity).toFixed(2)}</div>
+      <div style="font-weight:700">৳${(item.price * item.quantity).toFixed(2)}</div>
     </div>
   `).join('');
 
-  document.getElementById('chk-subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('chk-discount').textContent = `-$${discount.toFixed(2)}`;
-  document.getElementById('chk-shipping').textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
-  document.getElementById('chk-total').textContent = `$${total.toFixed(2)}`;
+  document.getElementById('chk-subtotal').textContent = `৳${subtotal.toFixed(2)}`;
+  document.getElementById('chk-discount').textContent = `-৳${discount.toFixed(2)}`;
+  document.getElementById('chk-shipping').textContent = shipping === 0 ? 'FREE' : `৳${shipping.toFixed(2)}`;
+  document.getElementById('chk-total').textContent = `৳${total.toFixed(2)}`;
 }
 
 function selectPaymentMethod(elem, method) {
   document.querySelectorAll('.payment-card-opt').forEach(opt => opt.classList.remove('active'));
   elem.classList.add('active');
+
+  const label = document.getElementById('payment-input-label');
+  const input = document.getElementById('chk-payment-input');
+  if (!label || !input) return;
+
+  if (method === 'bkash') {
+    label.textContent = 'bKash / Nagad Mobile Number';
+    input.placeholder = '01XXXXXXXXX';
+    input.value = '01712345678';
+  } else if (method === 'card') {
+    label.textContent = 'Debit / Credit Card Number (Visa / Mastercard)';
+    input.placeholder = '•••• •••• •••• 4242';
+    input.value = '4532 8912 3456 4242';
+  } else if (method === 'cod') {
+    label.textContent = 'Cash on Delivery Contact';
+    input.placeholder = 'Delivery phone for parcel confirmation';
+    input.value = '01712345678';
+  }
 }
 
 function processPlaceOrder(e) {
@@ -718,7 +740,7 @@ function processPlaceOrder(e) {
     document.getElementById('receipt-order-id').textContent = orderId;
     document.getElementById('receipt-email').textContent = email;
     document.getElementById('receipt-customer').textContent = name;
-    document.getElementById('receipt-total').textContent = `$${finalTotal.toFixed(2)}`;
+    document.getElementById('receipt-total').textContent = `৳${finalTotal.toFixed(2)}`;
     
     DOM.confirmationModal.classList.add('active');
 
@@ -745,7 +767,7 @@ function handleLoginSubmit(e) {
   state.user.isLoggedIn = true;
   updateUserHeaderState();
   closeModal('auth-modal');
-  showToast('Welcome back, Sophia!');
+  showToast('Welcome back, Tasnim!');
   
   if (DOM.checkoutModal.classList.contains('active')) {
     switchCheckoutMode('login');
@@ -760,10 +782,10 @@ function handleLogout() {
 
 function updateUserHeaderState() {
   if (state.user.isLoggedIn) {
-    DOM.userStatusText.textContent = 'Sophia V.';
+    DOM.userStatusText.textContent = 'Tasnim R.';
     DOM.userStatusBtn.style.color = 'var(--color-wine-primary)';
     DOM.userStatusBtn.onclick = () => {
-      if (confirm('Log out from Sophia Vance account?')) {
+      if (confirm('Log out from Tasnim Rahman account?')) {
         handleLogout();
       }
     };
